@@ -16,3 +16,31 @@ Deployment 생성하기
 ⭐️ 자동복구: 강력한 기능 중 하나
 * Pod가 죽으면 자동으로 새 Pod 생성
 * ReplicaSet이 "원하는 상태"를 유지하려 함
+
+### 8. 롤링 업데이트
+새로운 버전의 앱을 배포할 때 한 번에 모든 pod를 교체하면 서비스가 중단되는 것을 막기 위해 pod 하나씩 무중단으로 배포하는 업데이트 방식
+
+장점
+* 무중단 배포: 항상 일부 pod가 서비스 중
+* 안전한 배포: 문제 발생 시 롤백 가능
+* 점진적 검증: 새 버전이 안정적인지 확인하면서 배포
+
+```bash
+# 롤아웃 상태 확인 (실시간)
+kubectl rollout status deployment/nginx-deployment
+```
+
+```bash
+# 업데이트 이력 확인
+kubectl rollout history deployment/nginx-deployment
+```
+
+```bash
+# 이전 버전으로 롤백
+kubectl rollout undo deployment/nginx-deployment
+```
+
+```bash
+# 롤백 확인
+kubectl describe deployment nginx-deployment
+```
