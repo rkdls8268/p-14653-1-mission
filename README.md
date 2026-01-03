@@ -44,3 +44,18 @@ kubectl rollout undo deployment/nginx-deployment
 # 롤백 확인
 kubectl describe deployment nginx-deployment
 ```
+
+### 9. ClusterIP Service
+service는 왜 필요한가?
+pod는 일시적임. 삭제되고 다시 만들어지면 IP 주소가 바뀐다.
+
+역할
+* 고정된 접점 제공: pod가 바뀌어도 service 이름/IP는 유지
+* 로드 밸런싱: 여러 pod에 트래픽 분산
+* 서비스 디스커버리: 이름으로 pod를 찾을 수 있음
+
+|종류|접근 범위|사용 사례|
+|---|---|---|
+|ClusterIP|클러스터 내부만|백엔드 서비스, DB|
+|NodePort|외부에서 노드IP:포트로|개발/테스트 환경|
+|Load Balancer|외부 로드밸런서|클라우드 프로덕션|
