@@ -93,3 +93,22 @@ Secret vs ConfigMap
 |예시|로그 레벨, 포트 번호|비밀번호, API 키, 인증서|
 |저장 방식|평문|Base64 인코딩|
 |메모리 저장|	디스크|	tmpfs (메모리, 더 안전)|
+
+### 14. PersistentVolume과 PersistentVolumeClaim
+Pod는 일시적이어서 Pod가 삭제되면 그 안의 데이터도 사라지므로 PersistentVolume이라는 스토리지를 사용
+사용 사례
+* 데이터베이스
+* 파일 업로드 저장소
+* 로그 영구 보관
+* 캐시 데이터
+
+PersistentVolumn(PV)
+* 클러스터 레벨의 스토리지 리소스
+* 관리자가 미리 프로비저닝
+* 실제 스토리지(디스크, NFS 등)를 최소화
+
+PersistenceVolumeClaim(PVC)
+* Pod가 PV를 요청하는 방법
+* 개발자가 필요한 용량과 접근 모드 명시
+* 조건에 맞는 PV와 자동 연결
+⚠️ 삭제 순서 주의: Pod → PVC → PV 순서로 삭제! PVC가 Pod에서 사용 중이면 삭제가 pending 상태로 대기.
