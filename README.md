@@ -119,3 +119,4 @@ PersistenceVolumeClaim(PVC)
 
 <img width="400" height="1200" alt="image" src="https://github.com/user-attachments/assets/24449547-4892-499c-be69-5e5ff239310d" />
 
+### 16. 정리
