@@ -112,3 +112,10 @@ PersistenceVolumeClaim(PVC)
 * 개발자가 필요한 용량과 접근 모드 명시
 * 조건에 맞는 PV와 자동 연결
 ⚠️ 삭제 순서 주의: Pod → PVC → PV 순서로 삭제! PVC가 Pod에서 사용 중이면 삭제가 pending 상태로 대기.
+
+### 15. 전체 애플리케이션 배포
+
+구조
+
+<img width="400" height="1200" alt="image" src="https://github.com/user-attachments/assets/24449547-4892-499c-be69-5e5ff239310d" />
+
